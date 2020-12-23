@@ -17,6 +17,20 @@ The only data preprocessing applied is to normalized the RGB values in the range
 
 During evaluation / prediction, the input will need to be resized to 256x256 while maintaining aspect ratio with the cropping being centered.
 
+### Base Model
+
+The base model comprises of 2 layers of convolution at 32, 64 filters each with kernel size of 3x3, strides of 2 and padding set to "same". 
+
+The encoder is a Dense layer with the latent dim set initially to 128 units.
+
+The decoder comprises of 2 layers of convolutional networks of 64, 32 filters each of kernel size (3,3), strides of 2 and padding set to "same".
+
+We then apply a Conv2DTranspose layer to upscale the encoder features to its original image size. The output is then passed through a sigmoid activation layer.
+
+The model is trained with the Adam optimizer with an initial learning rate of 1e-3, with the loss function set to MSE ( Mean squared error )
+
+![Base Model](output/base_model.png)
+
 ### Training
 
 Autoencoder with hidden latent dim set to 128 units initially; adam optimizer with LR set to 1e-3; epochs set to 50
