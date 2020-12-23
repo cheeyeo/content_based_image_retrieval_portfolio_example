@@ -1,0 +1,13 @@
+.coverage
+__pycache__
+*.egg-info/
+.eggs/
+htmlcov/
+.pytest_cache
+build/
+dist/
+dataset
+dataset/
+query/
+*.h5
+*.pkl
