@@ -80,7 +80,7 @@ Epoch 16/25
 
 The training loss continues to fall for the remainder epochs but the val loss starts to rise resulting in overfitting as shown in the train/val loss plot 
 
-[Train/loss plot](output/autoencoder_loss_exp1.png)
+![Train/loss plot](output/autoencoder_loss_exp1.png)
 
 ### Experiment 2
 
@@ -110,9 +110,9 @@ Epoch 18/25
 
 This is shown in the plot below where the val loss starts to diverge from the train loss from epoch 13 onwards:
 
-[Train/val loss](output/autoencoder_loss_exp2.png)
+![Train/val loss](output/autoencoder_loss_exp2.png)
 
-Based on the above experiment, learning rate constraint does have a regularization effect but might need to try different approaches / types to LR decay...
+Based on the above experiment, learning rate constraint does have a regularization effect but might need to try different approaches to LR decay
 
 ### Experiment 3
 
@@ -141,19 +141,17 @@ Epoch 15/25
 
 The overfitting occurs later at epoch 15 where the loss start to diverge greatly. This is shown in the plot below:
 
-[Train/val loss](output/autoencoder_loss_exp3.png)
+![Train/val loss](output/autoencoder_loss_exp3.png)
 
 Since we are using learning rate decay we can set the LR to be higher value to test for convergence. Setting LR to 1e-2 and train for 25 epochs, with all other hyperparameters remaining the same.
 
 The plot below shows the train/val loss:
 
-[Train/val loss](output/autoencoder_loss_exp4.png)
+![Train/val loss](output/autoencoder_loss_exp4.png)
 
 Compared to the previous run, we can see that both the train and val loss have started to converge, resulting in more stable training. The model is still overfitting but at a lesser extent:
 ```
 ...
-
-```
 
 Epoch 10/25
 63/63 [==============================] - 21s 329ms/step - loss: 0.0196 - val_loss: 0.0243
@@ -209,7 +207,7 @@ Set the initial L1 norm to be `0.001`
 The training/val loss shows initial underfitting with the training loss falling slower than the val loss. The loss converge at around epoch 9 but starts to diverge towards the end, with a final train loss of `0.0255` and val loss of `0.0352`. These values are much higher than previous experiment and could be the result of setting the L1 Norm value too high.
 
 The train/loss plot is shown below:
-[Train/val loss](output/autoencoder_loss_exp5_l1_reg_0.001.png)
+![Train/val loss](output/autoencoder_loss_exp5_l1_reg_0.001.png)
 
 We run another experiment with the L1 norm set to `0.0001`
 
@@ -246,7 +244,7 @@ The final val loss is much higher than exp 4 at `0.0288`
 
 The train/val loss plot shows a similar pattern compared to previous experiment:
 
-[Train/val loss L1 Norm 0.0001](output/autoencoder_loss_exp5_l1_reg_0.0001.png)
+![Train/val loss L1 Norm 0.0001](output/autoencoder_loss_exp5_l1_reg_0.0001.png)
 
 Since the activity regularization allows for an overcomplete representation at the encoder output, we conduct another experiment by increasing the number of encoder units to 192.
 
@@ -283,11 +281,11 @@ Epoch 25/25
 Although the log shows some slight improvement over previous run, the val loss is still high at `0.0271`, compared to experiment 4 at `0.017`
 
 The train/val loss plot is shown below:
-[Train loss plot](output/autoencoder_loss_exp5_l1_reg_0.0001_latent_192.png)
+![Train loss plot](output/autoencoder_loss_exp5_l1_reg_0.0001_latent_192.png)
 
 We can try to decrease the LR to 1e-3 and see if that has an effect.
 
-[Train/val loss L1 Norm 0.0001](output/autoencoder_loss_exp5_l1_reg_0.0001_lr_1e_3.png)
+![Train/val loss L1 Norm 0.0001](output/autoencoder_loss_exp5_l1_reg_0.0001_lr_1e_3.png)
 
 The train/val loss shows a sudden spike but the loss values are both lower than the previous run. The train/val loss start to converge around epoch 10 onwards, with train loss slightly higher than val loss indicating some underfitting:
 
@@ -406,7 +404,7 @@ The final val loss is `0.0277`
 
 The reconstruction loss for this model is `0.017836` compared to the previous model which has a reconstruction loss of `0.025`. 
 
-[Train/val loss with L1 Norm, LR 1e-3, Epoch 40](output/autoencoder_loss_exp5_l1_reg_0.0001_lr_1e_3_relu_latent_192_epoch_40.png)
+![Train/val loss with L1 Norm, LR 1e-3, Epoch 40](output/autoencoder_loss_exp5_l1_reg_0.0001_lr_1e_3_relu_latent_192_epoch_40.png)
 
 Based on the results above the current model configuration is:
 * Learning Rate: 1e-3
@@ -465,7 +463,7 @@ Epoch 40/40
 The final train loss is `0.0274` and findl val loss is `0.0288`
 
 The plot also shows that both train/val loss might decrease with more training epochs:
-[Train/val loss](output/autoencoder_loss_exp6_weight_decay_0.0005.png)
+![Train/val loss](output/autoencoder_loss_exp6_weight_decay_0.0005.png)
 
 Repeat the experiment above but with a lower weight decay of 0.0002 set on the encoder layer only, to reduce the high bias i.e. high train loss...
 
@@ -566,11 +564,11 @@ The final train loss is `0.0151` and the final val loss at `0.0196`
 
 Running `evaluate.py` returns a reconstruction loss of `0.015255`. The reconstructed images are also clearer, showing slight details for certain images with complex background
 
-[Reconstructed images evaluate](output/eval_experiment_6.png)
+![Reconstructed images evaluate](output/eval_experiment_6.png)
 
 Repeat above experiment but increase training epochs to 60
 
-[Train loss plot](output/autoencoder_loss_exp6_weight_decay_0.0001_epoch_60.png)
+![Train loss plot](output/autoencoder_loss_exp6_weight_decay_0.0001_epoch_60.png)
 
 The train/val loss log follow a similar pattern as previous run, but both the train and val loss have decreased to `0.0127` and `0.0177`. There is still some overfitting with the val loss higher than the train loss but only slightly.
 ```
@@ -602,13 +600,13 @@ Epoch 60/60
 ```
 The reconstruction loss has dropped to `0.0126`. The reconstructed images are also more detailed compared to previous run:
 
-[Reconstructed images evaluate](output/eval_experiment_6.png)
+![Reconstructed images evaluate](output/eval_experiment_6.png)
 
 ## Experiment 7
 
 Repeating experiment 6 with the same params but using Image Augmentation with horizontal flips only.
 
-[Train Loss](output/autoencoder_loss_exp7_image_augmentation_epoch_60.png)
+![Train Loss](output/autoencoder_loss_exp7_image_augmentation_epoch_60.png)
 
 From the loss plot we can see that the training process follows a similar pattern, with the train loss starting out higher and converging with the val loss around epoch 20 onwards. However, with image augmentation applied, the model starts to overfit past epoch 30 with the validation loss stagnating. 
 
@@ -616,7 +614,7 @@ The final train loss is `0.0165`, with the final val loss at `0.0294`
 
 We repeat the experiment with the number of epochs halved to 30 and see if that makes a difference.
 
-[Train plot](output/autoencoder_loss_exp7_image_augmentation_epoch_30.png)
+![Train plot](output/autoencoder_loss_exp7_image_augmentation_epoch_30.png)
 
 The loss plot shows the training loss being higher than val loss but finally converges around epoch 15 onwards. The model show slight overfitting with the val loss being higher than train loss at the last few epochs:
 ```
@@ -659,7 +657,7 @@ The model is finalized with the following parameters based on experiment 6:
 * Batch size: 32
 
 The model architecture is as follows:
-[Final model architecture](output/autoencoder_model.png)
+![Final model architecture](output/autoencoder_model.png)
 
 The training process logs show that the trainig loss starts out high at `0.02872` with a sudden spike at epoch 2 due to the use of activation regularization but starts to decline in further epochs, reaching `0.0208` by epoch 30.
 
@@ -694,7 +692,7 @@ Epoch 60/60
 
 The next step is to create an index of the training data which is documented in `index_dataset.py`. It loads the pre-trained autoencoder model, extracts the encoder layer and builds a new model from it. The new model is used to extract the features from each training sample and serialize it into a pickle file. The encoder model architecture is shown below:
 
-[Encoder architecture](output/encoder_model.png)
+![Encoder architecture](output/encoder_model.png)
 
 During the search for similar images, the model and features are deserialized. A sample of the dataset is set aside as a test set. Each sample in the test set is passed through the encoder and a feature map is extracted. Each of these feature maps is compared against each image in the stored pickle features file and the euclidean distance between them is computed. The results are appended to a list and sorted from low to high. If the images are completely identical, the eucliden distance will be 0 and higher scores indicate more dissimilar images.
 
@@ -707,10 +705,13 @@ A sample of the results show that the search process is returning similar images
 
 For example initial search image `output/query_61.jpg` is an image of high rise buildings against an orange sky. The returned results in `output/results_61.jpg` include images of other buildings against a similar backdrop as well as images of a similar tone but without buildings.
 
-[Test query 1](outputs/query_61.jpg)
-[Test results 1](output/results_61.jpg)
+![Test query 1](outputs/query_61.jpg)
+![Test results 1](output/results_61.jpg)
 
 For another query `output/query_292.jpg`, its an image with snow covered hills with an orange sky. The result `output/results_292.jpg` contain similar images but also other images that don't contain snow covered hills but have a similar orange sky.
+
+![Test query 2](outputs/query_292.jpg)
+![Test results 2](output/results_292.jpg)
 
 The results indicate that for this particular dataset, the encoder is not invariant to tones/saturation in the images which explains the variance in the search results.
 
